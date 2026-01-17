@@ -19,8 +19,9 @@ function App() {
         {/* PUBLIC ROUTES */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/auth" element={<AuthPage onLogin={setUser} />} />
-
+        
         {/* PROTECTED DASHBOARDS */}
+        {/* Citizen Dashboard */}
         <Route
           path="/citizen"
           element={
@@ -32,8 +33,9 @@ function App() {
           }
         />
 
+        {/* Admin Dashboard with nested routing support */}
         <Route
-          path="/admin"
+          path="/admin/*"
           element={
             user?.role === "admin" ? (
               <AdminDashboard onLogout={logout} />
@@ -43,8 +45,9 @@ function App() {
           }
         />
 
+        {/* Provider Dashboard with nested routing support */}
         <Route
-          path="/provider"
+          path="/provider/*"
           element={
             user?.role === "provider" ? (
               <ProviderDashboard onLogout={logout} />
@@ -53,6 +56,10 @@ function App() {
             )
           }
         />
+
+        {/* Redirect old direct routes to default tabs */}
+        <Route path="/admin" element={<Navigate to="/admin/services" replace />} />
+        <Route path="/provider" element={<Navigate to="/provider/register" replace />} />
 
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" replace />} />
