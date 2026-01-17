@@ -15,6 +15,7 @@ def process_health_request(message: str):
         department = "General Medicine"
 
     return {
+        "service": "health",
         "status": "success",
         "department": department,
         "message": "Doctor appointment request received"

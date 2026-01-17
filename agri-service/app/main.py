@@ -12,7 +12,16 @@ async def handle_agri_request(
     x_core_user_role: str = Header(...),
     x_core_request_id: str = Header(...)
 ):
-    return process_agri_request(payload.message)
+    try:
+        result = process_agri_request(payload.message)
+        return result
+
+    except Exception:
+        return {
+            "service": "agri",
+            "status": "failed",
+            "message": "Agriculture service temporarily unavailable"
+        }
 
 
 @app.get("/health-check")

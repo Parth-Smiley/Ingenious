@@ -17,9 +17,16 @@ async def handle_health_request(
     print("Role:", x_core_user_role)
 
     # Only process healthcare logic
-    result = process_health_request(payload.message)
+    try:
+        result = process_health_request(payload.message)
+        return result
 
-    return result
+    except Exception as e:
+        return {
+            "service": "health",
+            "status": "failed",
+            "message": "Healthcare service temporarily unavailable"
+        }
 
 
 @app.get("/health-check")

@@ -12,7 +12,17 @@ async def handle_city_request(
     x_core_user_role: str = Header(...),
     x_core_request_id: str = Header(...)
 ):
-    return process_city_request(payload.message)
+    try:
+        result = process_city_request(payload.message)
+        return result
+
+    except Exception:
+        return {
+            "service": "city",
+            "status": "failed",
+            "message": "City service temporarily unavailable"
+        }
+
 
 
 @app.get("/health-check")

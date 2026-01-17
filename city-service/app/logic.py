@@ -12,6 +12,7 @@ def process_city_request(message: str):
         department = "Municipal Services"
 
     return {
+        "service": "city",
         "status": "success",
         "department": department,
         "message": "City complaint registered"

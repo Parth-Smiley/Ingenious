@@ -12,6 +12,7 @@ def process_agri_request(message: str):
         category = "General Agriculture"
 
     return {
+        "service": "agri",
         "status": "success",
         "category": category,
         "message": "Agriculture request received"
