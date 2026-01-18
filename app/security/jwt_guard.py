@@ -16,6 +16,8 @@ def get_current_user(authorization: str = Header(None)):
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
     return {
-        "username": payload.get("username"),
-        "role": payload.get("role"),
+        "username": payload["sub"],
+        "role": payload["role"],
     }
+
+

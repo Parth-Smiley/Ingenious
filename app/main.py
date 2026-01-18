@@ -10,6 +10,10 @@ from fastapi.security import HTTPBearer
 
 security = HTTPBearer()
 
+from app.core.test_routes import router as test_router
+
+
+
 app = FastAPI(
     title="National Core Platform",
     description="National Core Platform with JWT Authentication",
@@ -60,7 +64,7 @@ app.include_router(auth_router, prefix="/auth")
 app.include_router(registry_router, prefix="/registry")
 app.include_router(core_router, prefix="/core")
 app.include_router(admin_router, prefix="/admin")
-
+app.include_router(test_router, prefix="/core")
 @app.get("/")
 def root():
     return {

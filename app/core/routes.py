@@ -21,17 +21,21 @@ def core_request(
     message = payload.get("message", "").lower()
 
     # ---- INTENT DETECTION ----
-    if any(word in message for word in ["soil", "fertilizer", "crop", "farming"]):
-        domain = "agriculture"
-    elif any(word in message for word in ["road", "water", "electricity", "municipal"]):
+    msg = message.lower()
+
+    CITY_KEYWORDS = ["road", "street", "water", "electricity", "municipal", "complaint"]
+    AGRI_KEYWORDS = ["soil", "crop", "fertilizer", "farming", "agriculture"]
+
+    if any(k in msg for k in CITY_KEYWORDS):
         domain = "city"
-    elif any(word in message for word in ["doctor", "hospital", "medical", "health"]):
-        domain = "health"
+    elif any(k in msg for k in AGRI_KEYWORDS):
+        domain = "agriculture"
     else:
         raise HTTPException(
             status_code=400,
             detail="Unable to understand request intent"
         )
+
 
     # ---- SERVICE RESOLUTION (THIS IS THE KEY FIX) ----
     service = (
@@ -52,19 +56,24 @@ def core_request(
     request_id = str(uuid.uuid4())
 
     headers = {
-        "X-Core-User-Name": user["username"],
-        "X-Core-User-Role": user["role"],
-        "X-Core-Request-ID": request_id,
+        "x-core-user-name": user["username"],
+        "x-core-user-role": user["role"],
+        "x-core-request-id": str(uuid.uuid4()),
+        "Content-Type": "application/json"
     }
 
+
+
     service_payload = {
-        "intent": domain,
+        "intent":domain,
         "message": payload.get("message"),
     }
     print("SERVICE TYPE:", type(service))
     print("SERVICE VALUE:", service)
 
     url = f"{service.base_url}{service.endpoint_path}"
+  # use your actual city port
+
 
     try:
         response = requests.post(
