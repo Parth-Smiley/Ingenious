@@ -37,6 +37,9 @@ function App() {
             </Guard>
           }
         />
+        <Route path="/admin/*" element={<AdminDashboard />} />
+        
+
 
         <Route
           path="/admin"

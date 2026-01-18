@@ -1,9 +1,9 @@
-/* CSS Variables */
+/* =====================
+   VARIABLES
+===================== */
 :root {
   --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
   --secondary-color: #10b981;
-  --secondary-hover: #0da271;
   --background: #ffffff;
   --surface: #f8fafc;
   --text-primary: #1e293b;
@@ -12,260 +12,68 @@
   --card-bg: rgba(255, 255, 255, 0.95);
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.25);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 40px rgba(132, 185, 223, 0.4);
-  --transition: all 0.3s ease;
 }
 
-/* Dark Mode Variables */
 body.dark-mode {
-  --primary-color: #3b82f6;
-  --primary-hover: #60a5fa;
-  --secondary-color: #10b981;
-  --secondary-hover: #34d399;
   --background: #0f172a;
   --surface: #1e293b;
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --border-color: #334155;
   --card-bg: rgba(30, 41, 59, 0.95);
-  --glass-bg: rgba(15, 23, 42, 0.15);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(15, 23, 42, 0.2);
 }
 
-/* RESET & BASE */
+/* =====================
+   BASE
+===================== */
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
-/* PAGE BACKGROUND */
 .auth-wrapper {
-  width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  position: relative;
-  transition: var(--transition);
 }
 
-body.dark-mode .auth-wrapper {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
-.auth-wrapper.light {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.auth-wrapper.dark {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
-/* Back Button */
-.auth-back-btn {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background: var(--surface);
-  border: 1px solid var(--border-color);
-  border-radius: 2rem;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-primary);
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-  z-index: 10;
-}
-
-.auth-back-btn:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateX(-5px);
-}
-
-/* GLASS CARD */
+/* =====================
+   CONTAINER
+===================== */
 .auth-container {
   width: 100%;
   max-width: 1000px;
   height: 600px;
+  display: flex;
   background: var(--glass-bg);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   border-radius: 24px;
-  position: relative;
   overflow: hidden;
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-lg);
-  display: flex;
 }
 
-/* IMAGE PANEL */
+/* IMAGE */
 .auth-image-panel {
-  position: absolute;
   width: 50%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  padding: 3rem;
-  transition: transform 0.6s ease;
 }
 
-.auth-wrapper.toggled .auth-image-panel {
-  left: 0;
-  right: auto;
-}
-
-.image-overlay {
-  color: white;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-}
-
-.welcome-text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 0.5px;
-}
-
-.welcome-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.demo-credentials {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 2rem;
-}
-
-.demo-credentials h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: white;
-}
-
-.credential-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 0.75rem;
-  transition: var(--transition);
-}
-
-.credential-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(5px);
-}
-
-.credential-icon {
-  color: white;
-  font-size: 1.2rem;
-  margin-top: 0.25rem;
-}
-
-.credential-item div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-align: left;
-}
-
-.credential-item strong {
-  color: white;
-  font-size: 1rem;
-}
-
-.credential-item span {
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-/* PANELS - FIXED: Added scroll and better height management */
+/* LOGIN PANEL */
 .auth-panel {
-  position: absolute;
   width: 50%;
-  height: 100%;
-  padding: 2rem; /* Reduced padding to make more space */
-  transition: transform 0.6s ease;
+  background: var(--card-bg);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
-  z-index: 2;
-  overflow-y: auto; /* Added scroll */
+  justify-content: center;
 }
 
-/* Custom scrollbar for panels */
-.auth-panel::-webkit-scrollbar {
-  width: 6px;
-}
-
-.auth-panel::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.auth-panel::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 3px;
-}
-
-.auth-panel::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
-}
-
-/* SIGN IN / SIGN UP POSITION */
-.sign-in-panel {
-  left: 0;
-  transform: translateX(0);
-  border-right: 1px solid var(--border-color);
-}
-
-.sign-up-panel {
-  right: 0;
-  transform: translateX(100%);
-}
-
-/* TOGGLE ANIMATION (KEEPING YOUR ORIGINAL) */
-.auth-wrapper.toggled .sign-in-panel {
-  transform: translateX(-100%);
-}
-
-.auth-wrapper.toggled .sign-up-panel {
-  transform: translateX(0);
-}
-
-/* HEADER - Reduced margin */
+/* =====================
+   HEADER
+===================== */
 .auth-header {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -274,447 +82,78 @@ body.dark-mode .auth-wrapper {
 .auth-icon {
   font-size: 2.5rem;
   color: var(--primary-color);
-  margin-bottom: 0.75rem;
-  animation: float 3s ease-in-out infinite;
 }
 
-.auth-panel h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  transition: var(--transition);
-}
-
-.auth-subtitle {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-/* FORM - Reduced gaps */
+/* =====================
+   FORM
+===================== */
 .auth-form {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .input-group {
-  position: relative;
   display: flex;
   align-items: center;
   background: var(--surface);
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid var(--border-color);
-  transition: var(--transition);
-  min-height: 44px;
-}
-
-.input-group:focus-within {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .input-icon {
-  color: var(--text-secondary);
-  margin: 0 0.75rem;
-  font-size: 1rem;
-}
-
-.auth-panel input,
-.auth-panel select {
-  flex: 1;
-  padding: 0.5rem 0;
-  border: none;
-  background: transparent;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  outline: none;
-  min-height: 36px;
-}
-
-.auth-panel input::placeholder {
-  color: var(--text-secondary);
-  opacity: 0.7;
-}
-
-.auth-panel select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1rem;
-  padding-right: 2.5rem;
-}
-
-/* Password Toggle */
-.password-toggle {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  padding: 0.5rem;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-.password-toggle:hover {
-  color: var(--primary-color);
-}
-
-/* Verify Section - Compact */
-.verify-section {
-  background: var(--surface);
-  border-radius: 10px;
-  padding: 0.75rem;
-  margin: 0.25rem 0;
-  border: 1px solid var(--border-color);
-}
-
-.verify-toggle {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-}
-
-.verify-toggle input {
-  display: none;
-}
-
-.checkmark {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--border-color);
-  border-radius: 4px;
   margin-right: 0.5rem;
-  position: relative;
-  transition: var(--transition);
-  flex-shrink: 0;
 }
 
-.verify-toggle input:checked + .checkmark {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.verify-toggle input:checked + .checkmark::after {
-  content: "✓";
-  position: absolute;
-  color: white;
-  font-size: 0.7rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.verify-label {
-  font-weight: 500;
-}
-
-.verify-options {
-  margin-top: 0.75rem;
-  animation: slideDown 0.3s ease-out;
-}
-
-.verify-buttons {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.verify-btn {
+input {
   flex: 1;
-  padding: 0.6rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: transparent;
-  color: var(--text-primary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: var(--transition);
-  font-size: 0.85rem;
-}
-
-.verify-btn:hover,
-.verify-btn.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-/* Form Options */
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  margin: 0.25rem 0;
-}
-
-.remember-me {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  cursor: pointer;
-}
-
-.forgot-password {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: var(--transition);
-  font-size: 0.85rem;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* Buttons - Smaller */
-.auth-btn {
-  width: 100%;
-  padding: 0.75rem;
   border: none;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  margin-top: 0.5rem;
+  background: transparent;
+  outline: none;
+  color: var(--text-primary);
 }
 
-.primary-btn {
+.auth-btn {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-  box-shadow: var(--shadow-md);
-}
-
-.primary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-}
-
-/* Quick Login */
-.quick-login {
-  margin: 0.75rem 0;
-}
-
-.quick-login p {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-}
-
-.demo-buttons {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.demo-btn {
-  flex: 1;
-  padding: 0.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-primary);
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: var(--transition);
-}
-
-.demo-btn:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-1px);
-}
-
-/* SWITCH TEXT */
-.switch-text {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.switch-text span {
-  color: var(--primary-color);
   font-weight: 600;
   cursor: pointer;
-  margin-left: 0.5rem;
-  transition: var(--transition);
 }
 
-.switch-text span:hover {
-  text-decoration: underline;
+/* =====================
+   TOP BUTTONS
+===================== */
+.auth-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE - Fixed mobile display */
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width: 900px) {
   .auth-container {
     flex-direction: column;
     height: auto;
-    min-height: 500px;
-    max-width: 500px;
-    max-height: 90vh;
   }
 
   .auth-image-panel {
-    position: relative;
+    height: 200px;
     width: 100%;
-    height: 180px;
-    min-height: 180px;
-    border-radius: 20px 20px 0 0;
-    padding: 1.5rem;
-  }
-
-  .auth-wrapper.toggled .auth-image-panel {
-    left: 0;
   }
 
   .auth-panel {
-    position: relative;
     width: 100%;
-    height: auto;
-    min-height: calc(90vh - 180px);
-    transform: none !important;
-    border: none;
-    padding: 1.5rem;
-    overflow-y: auto;
   }
-
-  /* FIXED: Show correct panel based on toggled state */
-  .sign-in-panel {
-    display: none;
-  }
-  
-  .sign-up-panel {
-    display: flex;
-  }
-  
-  .auth-wrapper.toggled .sign-in-panel {
-    display: flex;
-  }
-  
-  .auth-wrapper.toggled .sign-up-panel {
-    display: none;
-  }
-
-  .welcome-text {
-    font-size: 1.75rem;
-  }
-  
-  .welcome-subtitle {
-    font-size: 1rem;
-  }
-
-  .auth-back-btn {
-    top: 1rem;
-    left: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .auth-wrapper {
-    padding: 1rem;
-  }
-
-  .auth-panel {
-    padding: 1.25rem;
-  }
-
-  .verify-buttons {
-    flex-direction: column;
-  }
-
-  .demo-buttons {
-    flex-direction: column;
-  }
-
-  .form-options {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .auth-panel h2 {
-    font-size: 1.5rem;
-  }
-}
-/* KEEP ALL OF AUTH.CSS 2 AS YOU PROVIDED */
-/* ⬇️ ADD ONLY THIS SLIDING ANIMATION FROM AUTH.CSS 1 ⬇️ */
-
-.sign-in-panel {
-  left: 0;
-  transform: translateX(0);
-}
-
-.sign-up-panel {
-  right: 0;
-  transform: translateX(100%);
-}
-
-.auth-wrapper.toggled .sign-in-panel {
-  transform: translateX(-100%);
-}
-
-.auth-wrapper.toggled .sign-up-panel {
-  transform: translateX(0);
-}
-/* =====================================================
-   FIX: SYNC IMAGE PANEL WITH SLIDING ANIMATION
-   (This makes Digital Services move correctly)
-===================================================== */
-
-/* Default position (Login panel visible) */
-.auth-image-panel {
-  transform: translateX(0);
-}
-
-/* When toggled (Sign Up visible) */
-.auth-wrapper.toggled .auth-image-panel {
-  transform: translateX(-100%);
-}
-
-.auth-wrapper.toggled .auth-image-panel {
-  transform: translateX(0%);
-}
-
-/* Ensure smooth animation */
-.auth-image-panel,
-.sign-in-panel,
-.sign-up-panel {
-  transition: transform 0.6s ease;
 }

@@ -8,6 +8,8 @@ from app.database import Base, engine
 from app.db_models import test
 from fastapi.security import HTTPBearer
 
+from app.db_models import system_log  # 👈 IMPORTANT: import the model
+
 security = HTTPBearer()
 
 from app.core.test_routes import router as test_router

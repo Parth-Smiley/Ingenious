@@ -75,8 +75,8 @@ function LandingPage() {
       <header className="landing-header">
         <div className="header-content">
           <div className="logo-container">
-            <div className="logo-icon">🇮🇳</div>
-            <h1 className="logo-text">DigitalIndia</h1>
+            <div className="logo-icon">UNI</div>
+            <h1 className="logo-text">Serve India</h1>
           </div>
 
           <button
@@ -114,28 +114,11 @@ function LandingPage() {
                 <FaArrowRight className="btn-icon" />
               </button>
 
-              <button
-                className="btn btn-secondary"
-                onClick={() => handleNavigate("signin")}
-              >
-                Create New Account
-              </button>
+              
             </div>
 
-            <div className="stats-container">
-              <div className="stat-item">
-                <span className="stat-number">10M+</span>
-                <span className="stat-label">Active Users</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Services</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">24/7</span>
-                <span className="stat-label">Support</span>
-              </div>
-            </div>
+            
+            
           </div>
 
           {/* RIGHT */}
@@ -185,31 +168,7 @@ function LandingPage() {
         </div>
 
         {/* FOOTER CTA */}
-        <footer className="landing-footer">
-          <div className="footer-content">
-            <h3>Ready to experience seamless digital services?</h3>
-            <p>
-              Join millions of citizens who trust our platform for their daily
-              needs
-            </p>
-
-            <div className="footer-buttons">
-              <button
-                className="btn btn-primary btn-large"
-                onClick={() => handleNavigate("signin")}
-              >
-                Get Started Free
-              </button>
-
-              <button
-                className="btn btn-outline"
-                onClick={() => handleNavigate("login")}
-              >
-                Existing User? Login
-              </button>
-            </div>
-          </div>
-        </footer>
+        
       </main>
     </div>
   );
