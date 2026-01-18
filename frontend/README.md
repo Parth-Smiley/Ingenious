@@ -1,147 +1,70 @@
-# Ingenious Platform – Frontend
+# Getting Started with Create React App
 
-## 📌 Overview
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This repository contains the **frontend application** for the **Ingenious Platform**, a unified digital public services system built for a hackathon.
+## Available Scripts
 
-The frontend provides:
-- A modern landing page
-- Authentication (Sign In / Login with sliding animation)
-- Role-based dashboards for **Citizen**, **Admin**, and **Provider**
+In the project directory, you can run:
 
-The frontend is designed to work with a **central Core Platform backend** and does **not** directly communicate with individual services.
+### `npm start`
 
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 🧱 Tech Stack
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- **React.js**
-- **React Router DOM**
-- **Custom CSS (no UI framework)**
-- **React Icons**
+### `npm test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### 📝 Sign Up (Create Account)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- User enters:
-  - Username
-  - Password
-  - Role (Citizen / Admin / Provider)
-- Optional verification:
-  - OTP
-  - Email (UI only)
-- No backend call (demo only)
-- After successful sign-up → user is redirected to **Login panel**
+### `npm run eject`
 
----
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 🔑 Login
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- User logs in using demo credentials
-- Role is detected automatically
-- User is redirected to the corresponding dashboard:
-  - `/citizen`
-  - `/admin`
-  - `/provider`
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
----
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## 🧭 Routing & Navigation
+## Learn More
 
-Routing is handled using **React Router**.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-| Route | Description |
-|-----|------------|
-| `/` | Landing Page |
-| `/auth?mode=signin` | Sign Up panel |
-| `/auth?mode=login` | Login panel |
-| `/citizen` | Citizen Dashboard |
-| `/admin` | Admin Dashboard |
-| `/provider` | Provider Dashboard |
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-The authentication page uses a **sliding animation** to switch between Sign Up and Login panels.
+### Code Splitting
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## 👥 Role-Based Dashboards
+### Analyzing the Bundle Size
 
-### 👤 Citizen Dashboard
-- Placeholder UI for submitting service requests
-- Intended to call the Core Platform API
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### 🛠️ Admin Dashboard
-- Placeholder UI for monitoring system activity
-- Intended for logs and system-level access
+### Making a Progressive Web App
 
-### 🏢 Provider Dashboard
-- Read-only dashboard
-- Intended for service providers
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Each dashboard includes a **Logout** option that redirects back to the landing page.
+### Advanced Configuration
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## 🔗 Backend Integration (Design)
+### Deployment
 
-- Frontend communicates **only with the Core Platform**
-- No direct calls to health, agriculture, or city services
-- Role-based access is enforced by backend
-- Headers-based authentication is expected from backend
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-> Backend integration is minimal or mocked for demo clarity.
+### `npm run build` fails to minify
 
----
-
-## ▶️ Run Locally
-
-### 1️⃣ Install dependencies
-```bash
-npm install
-
-### 2️⃣ Start development server
-npm start
-
-### 3️⃣ Open in browser
-http://localhost:3000
-
-## 🗂️ Folder Structure
-
-frontend/
-│
-├── public/
-│ └── index.html
-│
-├── src/
-│ ├── pages/
-│ │ ├── LandingPage.js
-│ │ ├── AuthPage.js
-│ │ ├── CitizenDashboard.js
-│ │ ├── AdminDashboard.js
-│ │ └── ProviderDashboard.js
-│ │
-│ ├── styles/
-│ │ └── auth.css
-│ │
-│ ├── App.js
-│ └── index.js
-│
-├── .gitignore
-├── package.json
-└── README.md
-
-🏁 Summary
-
-The Ingenious Platform frontend demonstrates:
-
-Clean and modern UI
-
-Role-based navigation
-
-Scalable structure
-
-Clear separation between frontend and backend
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
